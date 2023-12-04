@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  node_app:
+    container_name: node_app
+    build: .
+    image: renji/postgres
+    ports:
+      - "3000:3000"
+    environment:
+      - PG_DB=postgres_db
+      - PG_USER=renji
+      - PG_PASSWORD=Mittals21@2110
+      - PG_HOST=node_db
+    depends_on:
+      - node_db
+    restart: always
+
+  node_db:
+    container_name: node_db
+    image: postgres:12
+    ports:
+      - "5433:5433"
+    environment:
+      - POSTGRES_DB=postgres_db
+      - POSTGRES_USER=renji
+      - POSTGRES_PASSWORD=Mittals21@2110
+    volumes:
+      - node_db_data:/var/lib/postgresql/data
+
+volumes:
+  node_db_data: {}
