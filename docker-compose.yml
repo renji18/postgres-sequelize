@@ -9,8 +9,8 @@ services:
       - "3000:3000"
     environment:
       - PG_DB=postgres_db
-      - PG_USER=renji
-      - PG_PASSWORD=Mittals21@2110
+      - PG_USER=YOUR_USER_NAME
+      - PG_PASSWORD=YOUR_PASSWORD
       - PG_HOST=node_db
     depends_on:
       - node_db
@@ -23,8 +23,8 @@ services:
       - "5433:5433"
     environment:
       - POSTGRES_DB=postgres_db
-      - POSTGRES_USER=renji
-      - POSTGRES_PASSWORD=Mittals21@2110
+      - POSTGRES_USER=YOUR_USER_NAME
+      - POSTGRES_PASSWORD=YOUR_PASSWORD
     volumes:
       - node_db_data:/var/lib/postgresql/data
 
